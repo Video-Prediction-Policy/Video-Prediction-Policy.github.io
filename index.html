@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-    content="Video Prediction Policy:A Generalist Robot Policy with Predictive Visual Representations">
+    content="Video Prediction Policy: A Generalist Robot Policy with Predictive Visual Representations">
   <meta name="keywords" content="Video generation, Imitation Learning, Robotic Manipulation">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>
-    Data Scaling Laws in Imitation Learning for Robotic Manipulation
+    Video Prediction Policy: A Generalist Robot Policy with Predictive Visual Representations
   </title>
 
   <!-- Thumbnail for social media sharing -->
@@ -56,45 +56,62 @@
     <div class="container is-fullhd">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <img src="media/images/title-1.jpg" alt="ReKep" style="display: block; margin: 0 auto; width: 90%">
-          <img src="media/images/title-2.jpg" alt="ReKep" style="display: block; margin: 0 auto; width: 70%">
+          <img src="media/images/title-3.png" alt="ReKep" style="display: block; margin: 0 auto; width: 70%">
           <br>
           <!-- <h1 class="title is-1 publication-title" style="color:#775295;">in Imitation Learning for Robotic Manipulation</h1> -->
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a target="_blank" href="https://fanqi-lin.github.io/">Fanqi Lin</a><sup>1,2,3*</sup>,
+              <a target="_blank">Yucheng Hu</a><sup>1,3,4*</sup>,
             </span>
             <span class="author-block">
-              <a target="_blank" href="https://yingdong-hu.github.io/">Yingdong Hu</a><sup>1,2,3*</sup>,
+              <a target="_blank" href="https://robert-gyj.github.io/">Yanjiang Guo</a><sup>1,4*</sup>,
             </span>
             <span class="author-block">
-              <a target="_blank" href="https://spyzss.github.io/reven.github.io/">Pingyue Sheng</a><sup>1</sup>,
+              <a target="_blank">Pengchao Wang</a><sup>5</sup>,
             </span>
             <span class="author-block">
-              <a target="_blank" href="https://alvinwen428.github.io/">Chuan Wen</a><sup>1,2,3</sup>,
+              <a target="_blank">Xiaoyu Chen</a><sup>1,4</sup>,
             </span>
             <span class="author-block">
-              <a target="_blank" href="https://scholar.google.com/citations?user=FiP-TVUAAAAJ">Jiacheng You</a><sup>1</sup>,
+              <a target="_blank">Yen-Jen Wang</a><sup>2</sup>,
             </span>
             <span class="author-block">
-              <a target="_blank" href="https://yang-gao.weebly.com/">Yang Gao</a><sup>1,2,3</sup>
+              <a target="_blank">Jianke Zhang</a><sup>1,4</sup>
             </span>
           </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a target="_blank">Koushil Sreenath</a><sup>2†</sup>,
+            </span>
+            <span class="author-block">
+              <a target="_blank">Chaochao Lu</a><sup>3†</sup>,
+            </span>
+            <span class="author-block">
+              <a target="_blank">Jianyu Chen</a><sup>1,4,5†</sup>,
+            </span>
+          </div>
+
           <div class="is-size-5 affiliation">
             <sup>1</sup>Tsinghua University,
-            <sup>2</sup>Shanghai Qi Zhi Institute,
-            <sup>3</sup>Shanghai Artificial Intelligence Laboratory
+            <sup>2</sup>UC Berkeley,
+            <sup>3</sup>Shanghai Artificial Intelligence Laboratory,
           </div>
+          <div class="is-size-5 affiliation">
+            <sup>4</sup>Shanghai Qi Zhi Institute,
+            <sup>5</sup>Robot Era
+          </div>
+
           <br>
           <div class="affiliation-note">
-            <sup>*</sup> indicates equal contributions
+            <sup>*</sup> indicates equal contributions,
+            <sup>†</sup> indicates corresponding authors,
           </div>
           <div class="button-container">
             <a href="./paper.pdf" target="_blank" class="button" style="background-color: #f2f2f2;border: transparent;"><i class="fa-light fa-file"></i>&emsp14;PDF</a>
             <a href="https://arxiv.org/abs/2410.18647" target="_blank" class="button" style="background-color: #f2f2f2;border: transparent;"><i class="ai ai-arxiv"></i>&emsp14;arXiv</a>
             <!-- <a href="https://youtu.be/2S8YhBdLdww" target="_blank" class="button"><i class="fa-light fa-film"></i>&emsp14;Video</a> -->
             <!-- <a href="https://x.com/wenlong_huang/status/1829135436717142319" target="_blank" class="button"><i class="fa-brands fa-x-twitter"></i>&emsp14;tl;dr</a> -->
-            <a href="https://github.com/Fanqi-Lin/Data-Scaling-Laws" target="_blank" class="button" style="background-color: #f2f2f2;border: transparent;"><i class="fa-light fa-code"></i>&emsp14;Code</a>
+            <a href="https://github.com/Hu-Yuch/Video-Prediction-Policy" target="_blank" class="button" style="background-color: #f2f2f2;border: transparent;"><i class="fa-light fa-code"></i>&emsp14;Code</a>
             <a href="https://huggingface.co/datasets/Fanqi-Lin/Processed-Task-Dataset" target="_blank" class="button" style="background-color: #f2f2f2;border: transparent;"><i class="fa-light fa-folder"></i>&emsp14;Data</a>
           </div>
         </div>
@@ -109,15 +126,14 @@
       <div class="container">
         <div class="columns is-vcentered  is-centered">
           <video id="teaser" autoplay muted loop controls height="100%" width="100%">
-            <source src="media/videos/teaser_nomask.mp4"
+            <source src="media/videos/v1.0.0.mp4"
                     type="video/mp4">
           </video>
           </br>
         </div>
         <br>
         <h2 class="subtitle has-text-centered">
-        We show that with proper data scaling, a single-task policy can generalize well to <strong>any new environment</strong> and 
-        <strong>any new object</strong> within the same category. Remarkably, the robot can even be deployed zero-shot in a hot pot restaurant 🍲!
+        We will present Video Prediction Policy <strong>(VPP)</strong>, the first large-scale generalist policy of <strong>multiple tasks dexterous hands</strong> !
         </h2>
       </div>
     </div>
@@ -130,16 +146,14 @@
     <h2 class="title is-3" style="margin-bottom: 0.5em; color:#6510ad">Abstract</h2>
     <div class="content has-text-justified">
       <p>
-        Data scaling has revolutionized fields like natural language processing and computer vision, 
-        providing models with remarkable generalization capabilities. In this paper, we investigate whether similar data scaling laws exist in robotics, 
-        particularly in robotic manipulation, and whether appropriate data scaling can yield single-task robot policies that can be deployed zero-shot for any object within the same category in any environment.
-        To this end, we conduct a comprehensive empirical study on data scaling in imitation learning. By collecting data across numerous environments and objects, 
-        we study how a policy's generalization performance changes with the number of training environments, objects, and demonstrations. 
-        Throughout our research, we collect over 40,000 demonstrations and execute more than 15,000 real-world robot rollouts under a rigorous evaluation protocol. 
-        Our findings reveal several intriguing results: the generalization performance of the policy follows a roughly <b>power-law</b> relationship with the number of environments and objects. 
-        The <b>diversity</b> of environments and objects is far more important than the absolute number of demonstrations; once the number of demonstrations per environment 
-        or object reaches a certain threshold, additional demonstrations have minimal effect. Based on these insights, we propose an efficient data collection strategy. 
-        With four data collectors working for one afternoon, we collect sufficient data to enable the policies for two tasks to achieve approximately 90% success rates in novel environments with unseen objects.
+        Recent advancements in robotics have focused on developing generalist policies capable of performing multiple tasks. Typically, these policies utilize pre-trained vision encoders to capture crucial    
+        information from current observations. However, previous vision encoders, which trained on two-image contrastive learning or single-image reconstruction, can not perfectly capture the sequential     
+        information essential for embodied tasks. Recently, video diffusion models (VDMs) have demonstrated the capability to accurately predict future image sequences, exhibiting a good understanding of 
+        physical dynamics. Motivated by the strong visual prediction capabilities of VDMs, we hypothesize that they inherently possess visual representations that reflect the evolution of the physical world, 
+        which we term predictive visual representations. Building on this hypothesis, we propose the Video Prediction Policy (VPP), a generalist robotic policy conditioned on the predictive visual 
+        representations from VDMs. To further enhance these representations, we incorporate diverse human or robotic manipulation datasets, employing unified video-generation training objectives. VPP 
+        consistently outperforms existing methods across two simulated and two real-world benchmarks. Notably, it achieves a 28.1% relative improvement in the Calvin ABC-D benchmark compared to the previous 
+        state-of-the-art and delivers a 28.8% increase in success rates for complex real-world dexterous manipulation tasks.
       </p>
     </div>
   </div>
