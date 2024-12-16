@@ -143,14 +143,15 @@
 <div class="container is-max-widescreen">
 <div class="columns is-centered has-text-centered">
   <div class="column is-four-fifths">
-    <h2 class="title is-3" style="margin-bottom: 0.5em; color:#6510ad">Abstract</h2>
+    <h2 class="title is-3" style="margin-bottom: 0.5em; color:#000000">Abstract</h2>
     <div class="content has-text-justified">
       <p>
         Recent advancements in robotics have focused on developing generalist policies capable of performing multiple tasks. Typically, these policies utilize pre-trained vision encoders to capture crucial    
         information from current observations. However, previous vision encoders, which trained on two-image contrastive learning or single-image reconstruction, can not perfectly capture the sequential     
-        information essential for embodied tasks. Recently, video diffusion models (VDMs) have demonstrated the capability to accurately predict future image sequences, exhibiting a good understanding of 
-        physical dynamics. Motivated by the strong visual prediction capabilities of VDMs, we hypothesize that they inherently possess visual representations that reflect the evolution of the physical world, 
-        which we term predictive visual representations. Building on this hypothesis, we propose the Video Prediction Policy (VPP), a generalist robotic policy conditioned on the predictive visual 
+        information essential for embodied tasks. Recently, video diffusion models (<strong>VDMs</strong>) have demonstrated the capability to accurately predict future image sequences, exhibiting a good
+        understanding of physical dynamics. Motivated by the strong visual prediction capabilities of VDMs, we hypothesize that they inherently possess visual representations that reflect the evolution of the       
+        physical world, 
+        which we term predictive visual representations. Building on this hypothesis, we propose the Video Prediction Policy (<strong>VPP</strong>), a generalist robotic policy conditioned on the predictive visual 
         representations from VDMs. To further enhance these representations, we incorporate diverse human or robotic manipulation datasets, employing unified video-generation training objectives. VPP 
         consistently outperforms existing methods across two simulated and two real-world benchmarks. Notably, it achieves a 28.1% relative improvement in the Calvin ABC-D benchmark compared to the previous 
         state-of-the-art and delivers a 28.8% increase in success rates for complex real-world dexterous manipulation tasks.
@@ -162,16 +163,14 @@
 <br>
 <br>
 <div class="rows is-centered has-text-centered">
-  <h2 class="title is-3" style="margin-bottom: 0.5em; color:#6510ad">Power-Law Data Scaling Laws</h2>
-  <p class="content has-text-justified" style="margin-bottom: 0.6em">The policy's generalization ability to new objects, new environments, or 
-    both scales approximately as a <strong>power law</strong> with the number of training objects, training environments, or 
-    training environment-object pairs, respectively. This is
-    evidenced by the correlation coefficient r in the video below.</b>
+  <h2 class="title is-3" style="margin-bottom: 0.5em; color:#000000">Model architecture</h2>
+  <p class="content has-text-justified" style="margin-bottom: 0.6em">We describe the two-stage learning process of the Video Prediction Policy. Initially, we train the Text-guided Video Prediction (TVP) model across diverse manipulation datasets to harness physical knowledge from internet data; subsequently, we design networks to aggregate predictive visual representations inside the TVP model and output final robot actions. <br><br><br></b>
   </p>
+
   <!-- <img src="media/figures/method.jpg" class="method-image" /> -->
   <div class="columns is-vcentered  is-centered">
     <video id="teaser" autoplay muted loop  height="90%" width="90%">
-      <source src="media/videos/curve.mp4"
+      <source src="media/videos/model.mp4"
               type="video/mp4">
     </video>
   </div>
@@ -181,47 +180,40 @@
 <br>
 <br>
 <br>
+
 <div class="rows is-centered has-text-centered">
-  <h2 class="title is-3" style="margin-bottom: 0.5em; color:#6510ad">Evaluation Videos</h2>
+  <h2 class="title is-3" style="margin-bottom: 0.5em; color:#000000">Experiment</h2>
+  <p class="content has-text-justified" style="margin-bottom: 0.6em">We conduct extensive experiments on both simulated and real-world robotic tasks to evaluate the performance of the video prediction policy (<strong>VPP</strong>). The simulated environments include the CALVIN benchmark and MetaWorld benchmark, while the real-world tasks encompass Panda arm manipulation and XHand dexterous hand manipulation. <br><br><br></b>
+  </p>
+   
+  <div class="rows is-centered has-text-centered">
+  <h2 class="title is-3" style="color:#6510ad;">Real-world Setup</h2>
+  <img src="media/images/Real.png" class="method-image" />
+  </div>
+  <br>
+  <br>
+  <br>
+  <div class="rows is-centered has-text-centered">
+  <h2 class="title is-3" style="color:#6510ad;">Quantitative Results</h2>
+  <img src="media/images/Metric.png" class="method-image" />
+  </div>
+</div>
+
+<br>
+
+<div class="rows is-centered has-text-centered">
+  <h2 class="title is-3" style="margin-bottom: 0.5em; color:#000000">Xhand Visualization</h2>
   <p class="content" style="text-align: left">
-    Building upon power-law data scaling laws, we propose an efficient data collection strategy. By 
-    collecting data from numerous environments (e.g., 32 environments), each featuring a unique manipulation 
-    object and 50 demonstrations, we can train a policy that 
-    generalizes effectively—achieving a 90% success rate—to any new environment and object. Below, we 
-    present sample rollouts from <strong>8 unseen testing environments</strong> investigated in the paper.
+    On the dexterous hand platform, we collected <strong>2.5k</strong> trajectories over <strong>100+</strong> tasks of <strong>10</strong> categories, including placing, cup-upright, relocating, stacking, passing, pressing, unplugging, opening, and complex tool using. Here we first show the difficult tasks using complex tools.
   </p>
 
   <div class="container block is-centered">
     <div class="columns is-centered">
-      <div class="column is-2" style="width: 22%;">
+      <div class="column is-2" style="width: 26%;">
           <div class="select" style="display: block;">
               <select id="env-selection" style="width: 100%;" onchange="SelectTestVideo()">
-                  <option value="env_1">Env 1 (Iron Cabinet)</option>
-                  <option value="env_2">Env 2 (Wooden Podium)</option>
-                  <option value="env_3">Env 3 (Black Workbench)</option>
-                  <option value="env_4">Env 4 (Two Chairs)</option>
-                  <option value="env_5">Env 5 (Cart)</option>
-                  <option value="env_6">Env 6 (Workstaion)</option>
-                  <option value="env_7">Env 7 (Meeting Room 1)</option>
-                  <option value="env_8">Env 8 (Meeting Room 2)</option>
-              </select>
-          </div>
-      </div>
-      <div class="column is-2" style="width: 20%;">
-          <div class="select" style="display: block;">
-              <select id="task-selection" style="width: 100%;" onchange="SelectTestVideo()">
-                <option value="pour_water">Pour Water</option>
-                <option value="pick_place_mouse">Mouse Arrangement</option>
-                <option value="fold_towel">Fold Towels</option>
-                <option value="unplug">Unplug Charge</option>
-              </select>
-          </div>
-      </div>
-      <div class="column is-2" style="width: 17%;">
-          <div class="select" style="display: block;"  onchange="SelectTestVideo()">
-              <select id="object-selection" style="width: 100%;">
-                <option value="1">Unseen Object 1</option>
-                <option value="2">Unseen Object 2</option>
+                  <option value="env_1">Use a hammer to hit the nail</option>
+                  <option value="env_2">Transferring liquids using a pipette</option>
               </select>
           </div>
       </div>
@@ -240,7 +232,7 @@
     <div class="column has-text-centered">
       <p style="text-align:center;">
         <video id="test-video" width="80%" height="100%" controls autoplay loop muted>
-          <source src="media/videos/test-wild-videos/env_1/pour_water/1.mp4" type="video/mp4">
+          <source src="media/videos/test-wild-videos/env_1.mp4" type="video/mp4">
         </video>
       </p>
     </div>
@@ -256,10 +248,9 @@
     <div class="rows">
 
       <div class="container has-text-centered">
-        <h2 class="title is-3" style="margin-bottom: 0.5em; color:#6510ad">More In-The-Wild Environments</h2>
+        <h2 class="title is-3" style="margin-bottom: 0.5em; color:#000000">More Tasks</h2>
         <p class="content" style="margin-bottom: 1.5em; text-align: left;">
-          We deployed the robot in various in-the-wild environments—including hot pot restaurants 🍲, cafés ☕, elevators 🛗, fountains ⛲, 
-          and other locations where data had not been previously collected. We found that the policy generalized surprisingly well!
+          We deployed the robot in various tasks including placing, cup-upright, relocating, stacking, passing, pressing, unplugging, opening, the scenes in the video are different from the training data.
         </p>
       </div>
 
@@ -275,7 +266,7 @@
             autoplay
             loop controlsList="nodownload"
             width="99%">
-            <source src="media/videos/wild-autonomous-skills/1.mp4" 
+            <source src="media/videos/more-tasks/1.mp4" 
             type="video/mp4">
           </video>
         </div>
@@ -287,7 +278,7 @@
             autoplay
             loop controlsList="nodownload"
             width="99%">
-            <source src="media/videos/wild-autonomous-skills/2.mp4" 
+            <source src="media/videos/more-tasks/2.mp4" 
             type="video/mp4">
           </video>
         </div>
@@ -301,7 +292,7 @@
             autoplay
             loop controlsList="nodownload"
             width="99%">
-            <source src="media/videos/wild-autonomous-skills/3.mp4" 
+            <source src="media/videos/more-tasks/3.mp4" 
             type="video/mp4">
           </video>
         </div>
@@ -313,7 +304,7 @@
             autoplay
             loop controlsList="nodownload"
             width="99%">
-            <source src="media/videos/wild-autonomous-skills/4.mp4" 
+            <source src="media/videos/more-tasks/4.mp4" 
             type="video/mp4">
           </video>
         </div>
@@ -327,7 +318,7 @@
             autoplay
             loop controlsList="nodownload"
             width="99%">
-            <source src="media/videos/wild-autonomous-skills/6.mp4" 
+            <source src="media/videos/more-tasks/6.mp4" 
             type="video/mp4">
           </video>
         </div>
@@ -339,7 +330,7 @@
             autoplay
             loop controlsList="nodownload"
             width="99%">
-            <source src="media/videos/wild-autonomous-skills/5.mp4" 
+            <source src="media/videos/more-tasks/5.mp4" 
             type="video/mp4">
           </video>
         </div>
@@ -353,7 +344,7 @@
             autoplay
             loop controlsList="nodownload"
             width="99%">
-            <source src="media/videos/wild-autonomous-skills/7.mp4" 
+            <source src="media/videos/more-tasks/7.mp4" 
             type="video/mp4">
           </video>
         </div>
@@ -365,7 +356,7 @@
             autoplay
             loop controlsList="nodownload"
             width="99%">
-            <source src="media/videos/wild-autonomous-skills/8.mp4" 
+            <source src="media/videos/more-tasks/8.mp4" 
             type="video/mp4">
           </video>
         </div>
@@ -377,21 +368,14 @@
 <br>
 <br>
 <div class="rows is-centered has-text-centered">
-  <h2 class="title is-3" style="color:#6510ad;">Hardware Setup</h2>
-  <img src="media/images/hardware-setups.jpg" class="method-image" />
+  <h2 class="title is-3" style="color:#000000;">Hardware Setup</h2>
+  <img src="media/images/hardware-setups.png" class="method-image" height="70%" width="70%" />
 </div>
 
-<br>
-<br>
-<br>
-<h2 class="title is-3 is-centered has-text-centered" style="color:#6510ad;">Acknowledgments</h2>
-<p>
-  The robot hardware is partially supported by Tsinghua ISR Lab. We would like to express our gratitude to Cheng Chi and Chuer Pan for their invaluable advice on UMI. We are also thankful to Linkai Wang for his assistance in setting up the movable platform. Additionally, we appreciate the thoughtful discussions and feedback provided by Tong Zhang, Ruiqian Nai, Geng Chen, Weijun Dong, Shengjie Wang, and Renhao Wang.
-</p>
 
 <br>
 <br>
-<h2 class="title is-3 is-centered has-text-centered" style="color:#6510ad;">BibTeX</h2>
+<h2 class="title is-3 is-centered has-text-centered" style="color:#000000;">BibTeX</h2>
 <p class="bibtex">
   @misc{lin2024datascalinglawsimitation, <br>
   &nbsp;&nbsp;title = {Data Scaling Laws in Imitation Learning for Robotic Manipulation}, <br>
