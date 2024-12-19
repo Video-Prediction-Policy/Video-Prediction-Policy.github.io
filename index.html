@@ -111,8 +111,6 @@
             <a href="https://arxiv.org/abs/2410.18647" target="_blank" class="button" style="background-color: #f2f2f2;border: transparent;"><i class="ai ai-arxiv"></i>&emsp14;arXiv</a>
             <!-- <a href="https://youtu.be/2S8YhBdLdww" target="_blank" class="button"><i class="fa-light fa-film"></i>&emsp14;Video</a> -->
             <!-- <a href="https://x.com/wenlong_huang/status/1829135436717142319" target="_blank" class="button"><i class="fa-brands fa-x-twitter"></i>&emsp14;tl;dr</a> -->
-            <a href="https://github.com/Hu-Yuch/Video-Prediction-Policy" target="_blank" class="button" style="background-color: #f2f2f2;border: transparent;"><i class="fa-light fa-code"></i>&emsp14;Code</a>
-            <a href="https://huggingface.co/datasets/Fanqi-Lin/Processed-Task-Dataset" target="_blank" class="button" style="background-color: #f2f2f2;border: transparent;"><i class="fa-light fa-folder"></i>&emsp14;Data</a>
           </div>
         </div>
       </div>
@@ -214,6 +212,7 @@
               <select id="env-selection" style="width: 100%;" onchange="SelectTestVideo()">
                   <option value="env_1">Use a hammer to hit the nail</option>
                   <option value="env_2">Transferring liquids using a pipette</option>
+                  <option value="env_3">Grab and use the drill</option>
               </select>
           </div>
       </div>
@@ -232,7 +231,7 @@
     <div class="column has-text-centered">
       <p style="text-align:center;">
         <video id="test-video" width="80%" height="100%" controls autoplay loop muted>
-          <source src="media/videos/test-wild-videos/env_1.mp4" type="video/mp4">
+          <source src="media/videos/tools-tasks/env_1.mp4" type="video/mp4">
         </video>
       </p>
     </div>
@@ -257,112 +256,172 @@
       <!-- <p class="content has-text-centered">
         <span style="letter-spacing: 0.07em;">V<span style="font-variant: small-caps; font-size: 1.2em;">i</span>L<span style="font-variant: small-caps; font-size: 1.2em;">a</span></span> effectively utilizes visual feedback in an intuitive and natural way, enabling robust closed-loop planning in dynamic environments.
       </p> -->
-
-      <div class="columns">
+      
+      <div class="video-container">
         <div class="column has-text-centered">
-          <video id="dist1"
-            controls
-            muted
-            autoplay
-            loop controlsList="nodownload"
-            width="99%">
-            <source src="media/videos/more-tasks/1.mp4" 
-            type="video/mp4">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/2.mp4" type="video/mp4">
           </video>
         </div>
-
         <div class="column has-text-centered">
-          <video id="dist2"
-            controls
-            muted
-            autoplay
-            loop controlsList="nodownload"
-            width="99%">
-            <source src="media/videos/more-tasks/2.mp4" 
-            type="video/mp4">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/3.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/4.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/5.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/6.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/7.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/8.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/9.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/11.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/12.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/13.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/14.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/15.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/16.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/18.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/19.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/20.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/21.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/22.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/23.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/25.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/26.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/27.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/28.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/29.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/30.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/31.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/32.mp4" type="video/mp4">
           </video>
         </div>
       </div>
 
-      <div class="columns">
-        <div class="column has-text-centered">
-          <video id="dist1"
-            controls
-            muted
-            autoplay
-            loop controlsList="nodownload"
-            width="99%">
-            <source src="media/videos/more-tasks/3.mp4" 
-            type="video/mp4">
-          </video>
-        </div>
+      <style>
+        .video-container {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          grid-template-rows: repeat(7, auto); 
+          gap: 16px; 
+        }
 
-        <div class="column has-text-centered">
-          <video id="dist2"
-            controls
-            muted
-            autoplay
-            loop controlsList="nodownload"
-            width="99%">
-            <source src="media/videos/more-tasks/4.mp4" 
-            type="video/mp4">
-          </video>
-        </div>
-      </div>
+        .column {
+          width: 100%; 
+        }
 
-      <div class="columns">
-        <div class="column has-text-centered">
-          <video id="dist1"
-            controls
-            muted
-            autoplay
-            loop controlsList="nodownload"
-            width="99%">
-            <source src="media/videos/more-tasks/6.mp4" 
-            type="video/mp4">
-          </video>
-        </div>
+        video {
+          width: 100%;
+          height: auto; 
+        }
+      </style>
 
-        <div class="column has-text-centered">
-          <video id="dist2"
-            controls
-            muted
-            autoplay
-            loop controlsList="nodownload"
-            width="99%">
-            <source src="media/videos/more-tasks/5.mp4" 
-            type="video/mp4">
-          </video>
-        </div>
-      </div>
-
-      <div class="columns">
-        <div class="column has-text-centered">
-          <video id="dist1"
-            controls
-            muted
-            autoplay
-            loop controlsList="nodownload"
-            width="99%">
-            <source src="media/videos/more-tasks/7.mp4" 
-            type="video/mp4">
-          </video>
-        </div>
-
-        <div class="column has-text-centered">
-          <video id="dist2"
-            controls
-            muted
-            autoplay
-            loop controlsList="nodownload"
-            width="99%">
-            <source src="media/videos/more-tasks/8.mp4" 
-            type="video/mp4">
-          </video>
-        </div>
-      </div>
+    </div>
   </div>
 </section>
+
 
 <br>
 <br>
@@ -409,12 +468,8 @@
 <script>
   document.getElementById('shuffle-video').addEventListener('click', function() {
     var envSelect = document.getElementById('env-selection');
-    var taskSelect = document.getElementById('task-selection');
-    var objectSelect = document.getElementById('object-selection');
     randomizeSelect(envSelect);
-    randomizeSelect(taskSelect);
-    randomizeSelect(objectSelect);
-    console.log("Shuffle", envSelect.value, taskSelect.value, objectSelect.value)
+    console.log("Shuffle", envSelect.value)
     SelectTestVideo();
   });
 
@@ -427,13 +482,10 @@
 
   function SelectTestVideo() {
     var env_id = document.getElementById("env-selection").value;
-    var task_name = document.getElementById("task-selection").value;
-    var object_id = document.getElementById("object-selection").value;
 
-    console.log("SelectTestVideo", env_id, task_name, object_id)
+    console.log("SelectTestVideo", env_id)
     var video = document.getElementById("test-video");
-    video.src = "media/videos/test-wild-videos/" + env_id + "/" + 
-                task_name + "/" + object_id + ".mp4";
+    video.src = "media/videos/tools-tasks/" + env_id + ".mp4";
     video.play();
   }
 </script>
