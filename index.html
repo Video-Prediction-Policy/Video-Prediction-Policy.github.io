@@ -108,7 +108,7 @@
           </div>
           <div class="button-container">
             <a href="./paper.pdf" target="_blank" class="button" style="background-color: #f2f2f2;border: transparent;"><i class="fa-light fa-file"></i>&emsp14;PDF</a>
-            <a href="https://arxiv.org/abs/2410.18647" target="_blank" class="button" style="background-color: #f2f2f2;border: transparent;"><i class="ai ai-arxiv"></i>&emsp14;arXiv</a>
+            <a href="https://arxiv.org/abs/2412.14803" target="_blank" class="button" style="background-color: #f2f2f2;border: transparent;"><i class="ai ai-arxiv"></i>&emsp14;arXiv</a>
             <!-- <a href="https://youtu.be/2S8YhBdLdww" target="_blank" class="button"><i class="fa-light fa-film"></i>&emsp14;Video</a> -->
             <!-- <a href="https://x.com/wenlong_huang/status/1829135436717142319" target="_blank" class="button"><i class="fa-brands fa-x-twitter"></i>&emsp14;tl;dr</a> -->
           </div>
@@ -147,8 +147,8 @@
         Recently, video diffusion models (<strong>VDMs</strong>) have demonstrated the capability to accurately predict future image sequences, exhibiting a good
         understanding of physical dynamics. Motivated by the strong visual prediction capabilities of VDMs, we hypothesize that they inherently possess visual representations that reflect the evolution of the       
         physical world, 
-        which we term predictive visual representations. Building on this hypothesis, we propose the Video Prediction Policy (<strong>VPP</strong>), a generalist robotic policy conditioned on the predictive visual 
-        representations from VDMs. To further enhance these representations, we incorporate diverse human or robotic manipulation datasets, employing unified video-generation training objectives. VPP 
+        which we term predictive visual representations. Building on this hypothesis, we propose the Video Prediction Policy (<strong>VPP</strong>), <strong> a generalist robotic policy conditioned on the predictive visual 
+        representations from Video diffusion models.</strong> To further enhance these representations, we incorporate diverse human or robotic manipulation datasets, employing unified video-generation training objectives. VPP 
         consistently outperforms existing methods across two simulated and two real-world benchmarks. Notably, it achieves a 28.1% relative improvement in the Calvin ABC-D benchmark compared to the previous 
         state-of-the-art and delivers a 28.8% increase in success rates for complex real-world dexterous manipulation tasks.
       </p>
@@ -165,10 +165,11 @@
 
   <!-- <img src="media/figures/method.jpg" class="method-image" /> -->
   <div class="columns is-vcentered  is-centered">
-    <video id="teaser" autoplay muted loop  height="90%" width="90%">
+    <!-- <video id="teaser" autoplay muted loop  height="90%" width="90%">
       <source src="media/videos/model.mp4"
               type="video/mp4">
-    </video>
+    </video> -->
+    <img src="media/images/method.png" class="method-image" />
   </div>
 </div>
 
@@ -198,9 +199,9 @@
 <br>
 
 <div class="rows is-centered has-text-centered">
-  <h2 class="title is-3" style="margin-bottom: 0.5em; color:#000000">Xhand Visualization</h2>
+  <h2 class="title is-3" style="margin-bottom: 0.5em; color:#000000">Xhand Task Rollouts Visualization</h2>
   <p class="content" style="text-align: left">
-    On the dexterous hand platform, we collected <strong>3k</strong> trajectories over <strong>100+</strong> tasks of <strong>13</strong> categories, including placing, cup-upright, relocating, stacking, passing, pressing, unplugging, opening, and complex tool using. Here we first show the difficult tasks with complex tools.
+    On the dexterous hand platform, we collected <strong>3k</strong> trajectories over <strong>100+</strong> tasks of <strong>13</strong> categories, including placing, cup-upright, relocating, stacking, passing, pressing, unplugging, opening, and complex tool using. Here we first show the chanllenging tool-use tasks. <strong>All tasks below are run with single generalist policy with different instructions.</strong>
   </p>
 
   <div class="container block is-centered">
@@ -208,8 +209,8 @@
       <div class="column is-2" style="width: 26%;">
           <div class="select" style="display: block;">
               <select id="env-selection" style="width: 100%;" onchange="SelectTestVideo()">
-                  <option value="env_1">Use a hammer to hit the red nail</option>
-                  <option value="env_2">Transferring liquids using a pipette</option>
+                  <option value="env_2">Transfer liquid using a pipette</option>
+                  <option value="env_1">Use the hammer to hit the red nail</option>
                   <option value="env_3">Grasp and use the electrical drill</option>
               </select>
           </div>
@@ -229,7 +230,7 @@
     <div class="column has-text-centered">
       <p style="text-align:center;">
         <video id="test-video" width="80%" height="100%" controls autoplay loop muted>
-          <source src="media/videos/tools-tasks/env_1.mp4" type="video/mp4">
+          <source src="media/videos/tools-tasks/env_2.mp4" type="video/mp4">
         </video>
       </p>
     </div>
@@ -247,7 +248,7 @@
       <div class="container has-text-centered">
         <h2 class="title is-3" style="margin-bottom: 0.5em; color:#000000">More Tasks</h2>
         <p class="content" style="margin-bottom: 1.5em; text-align: left;">
-          We deployed the robot in various tasks including placing, cup-upright, relocating, stacking, passing, pressing, unplugging, opening, the scenes in the video are different from the training data.
+          We deployed the robot in various tasks including placing, cup-upright, relocating, stacking, passing, pressing, unplugging, opening. We rollout policy with unseen objects and scenes.
         </p>
       </div>
 
@@ -434,13 +435,13 @@
 <br>
 <h2 class="title is-3 is-centered has-text-centered" style="color:#000000;">BibTeX</h2>
 <p class="bibtex">
-  @misc{lin2024datascalinglawsimitation, <br>
-  &nbsp;&nbsp;title = {Data Scaling Laws in Imitation Learning for Robotic Manipulation}, <br>
-  &nbsp;&nbsp;author = {Fanqi Lin and Yingdong Hu and Pingyue Sheng and Chuan Wen and Jiacheng You and Yang Gao}, <br>
+  @misc{hu2024videopredictionpolicygeneralist, <br>
+  &nbsp;&nbsp;title = {Video Prediction Policy: A Generalist Robot Policy with Predictive Visual Representations}, <br>
+  &nbsp;&nbsp;author = {Yucheng Hu and Yanjiang Guo and Pengchao Wang and Xiaoyu Chen and Yen-Jen Wang and Jianke Zhang and Koushil Sreenath and Chaochao Lu and Jianyu Chen}, <br>
   &nbsp;&nbsp;archivePrefix = {arXiv}, <br>
-  &nbsp;&nbsp;eprint = {2410.18647}, <br>
-  &nbsp;&nbsp;primaryClass = {cs.RO}, <br>
-  &nbsp;&nbsp;url = {https://arxiv.org/abs/2410.18647}, <br>
+  &nbsp;&nbsp;eprint = {2412.14803}, <br>
+  &nbsp;&nbsp;primaryClass = {cs.CV}, <br>
+  &nbsp;&nbsp;url = {https://arxiv.org/abs/2412.14803}, <br>
   &nbsp;&nbsp;year = {2024} <br>
   }
 </p>
