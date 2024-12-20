@@ -131,7 +131,7 @@
         </div>
         <br>
         <h2 class="subtitle has-text-centered">
-        We will present Video Prediction Policy <strong>(VPP)</strong>, the first large-scale generalist policy of <strong>multiple tasks dexterous hands</strong> !
+        We present Video Prediction Policy <strong>(VPP)</strong>, the first generalist policy for <strong>multi-task dexterous hand manipulation</strong> !
         </h2>
       </div>
     </div>
@@ -144,9 +144,7 @@
     <h2 class="title is-3" style="margin-bottom: 0.5em; color:#000000">Abstract</h2>
     <div class="content has-text-justified">
       <p>
-        Recent advancements in robotics have focused on developing generalist policies capable of performing multiple tasks. Typically, these policies utilize pre-trained vision encoders to capture crucial    
-        information from current observations. However, previous vision encoders, which trained on two-image contrastive learning or single-image reconstruction, can not perfectly capture the sequential     
-        information essential for embodied tasks. Recently, video diffusion models (<strong>VDMs</strong>) have demonstrated the capability to accurately predict future image sequences, exhibiting a good
+        Recently, video diffusion models (<strong>VDMs</strong>) have demonstrated the capability to accurately predict future image sequences, exhibiting a good
         understanding of physical dynamics. Motivated by the strong visual prediction capabilities of VDMs, we hypothesize that they inherently possess visual representations that reflect the evolution of the       
         physical world, 
         which we term predictive visual representations. Building on this hypothesis, we propose the Video Prediction Policy (<strong>VPP</strong>), a generalist robotic policy conditioned on the predictive visual 
@@ -202,7 +200,7 @@
 <div class="rows is-centered has-text-centered">
   <h2 class="title is-3" style="margin-bottom: 0.5em; color:#000000">Xhand Visualization</h2>
   <p class="content" style="text-align: left">
-    On the dexterous hand platform, we collected <strong>2.5k</strong> trajectories over <strong>100+</strong> tasks of <strong>10</strong> categories, including placing, cup-upright, relocating, stacking, passing, pressing, unplugging, opening, and complex tool using. Here we first show the difficult tasks using complex tools.
+    On the dexterous hand platform, we collected <strong>3k</strong> trajectories over <strong>100+</strong> tasks of <strong>13</strong> categories, including placing, cup-upright, relocating, stacking, passing, pressing, unplugging, opening, and complex tool using. Here we first show the difficult tasks with complex tools.
   </p>
 
   <div class="container block is-centered">
@@ -210,9 +208,9 @@
       <div class="column is-2" style="width: 26%;">
           <div class="select" style="display: block;">
               <select id="env-selection" style="width: 100%;" onchange="SelectTestVideo()">
-                  <option value="env_1">Use a hammer to hit the nail</option>
+                  <option value="env_1">Use a hammer to hit the red nail</option>
                   <option value="env_2">Transferring liquids using a pipette</option>
-                  <option value="env_3">Grab and use the drill</option>
+                  <option value="env_3">Grasp and use the electrical drill</option>
               </select>
           </div>
       </div>
