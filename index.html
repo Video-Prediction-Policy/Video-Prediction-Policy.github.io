@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="Video Prediction Policy: A Generalist Robot Policy with Predictive Visual Representations">
+  <meta name="keywords" content="Video generation, Imitation Learning, Robotic Manipulation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    Video Prediction Policy: A Generalist Robot Policy with Predictive Visual Representations
+  </title>
+
+  <!-- Thumbnail for social media sharing -->
+  <meta property="og:image" content="media/images/dog_logo.png">
+
+  <!-- Favicon -->
+  <link rel="icon" href="media/images/dog_logo.png" type="image/jpeg">
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+  </script>
+
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <link rel="stylesheet" href="./static/source_serif_4.css">
+  <link rel="stylesheet" href="./static/source_sans_3.css">  
+  <link rel="stylesheet" href="./static/academicons.min.css">
+  <link rel="stylesheet" href="./static/fontawesome/css/fontawesome.css">
+  <link rel="stylesheet" href="./static/fontawesome/css/brands.css">
+  <link rel="stylesheet" href="./static/fontawesome/css/light.css">
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+</head>
+<!-- <body onload="updateInTheWild();updateBimanual();"> -->
+
+<section class="hero">
+  <div class="hero-body" style="padding-top: 1.5%;">
+    <div class="container is-fullhd">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <img src="media/images/title-3.png" alt="ReKep" style="display: block; margin: 0 auto; width: 70%">
+          <br>          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-widescreen">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-vcentered  is-centered">
+          <video id="teaser" autoplay muted loop controls height="100%" width="100%">
+            <source src="media/videos/v1.0.0.mp4"
+                    type="video/mp4">
+          </video>
+          </br>
+        </div>
+        <br>
+        <h2 class="subtitle has-text-centered">
+        We present Video Prediction Policy <strong>(VPP)</strong>, the first generalist policy for <strong>multi-task dexterous hand manipulation</strong> !
+        </h2>
+      </div>
+    </div>
+  </div>
+
+<br>
+<div class="container is-max-widescreen">
+<div class="columns is-centered has-text-centered">
+  <div class="column is-four-fifths">
+    <h2 class="title is-3" style="margin-bottom: 0.5em; color:#000000">Abstract</h2>
+    <div class="content has-text-justified">
+      <p>
+        Recently, video diffusion models (<strong>VDMs</strong>) have demonstrated the capability to accurately predict future image sequences, exhibiting a good
+        understanding of physical dynamics. Motivated by the strong visual prediction capabilities of VDMs, we hypothesize that they inherently possess visual representations that reflect the evolution of the       
+        physical world, 
+        which we term predictive visual representations. Building on this hypothesis, we propose the Video Prediction Policy (<strong>VPP</strong>), <strong> a generalist robotic policy conditioned on the predictive visual 
+        representations from Video diffusion models.</strong> To further enhance these representations, we incorporate diverse human or robotic manipulation datasets, employing unified video-generation training objectives. VPP 
+        consistently outperforms existing methods across two simulated and two real-world benchmarks. Notably, it achieves a 41.5% relative improvement in the Calvin ABC-D benchmark compared to the previous 
+        state-of-the-art and delivers a 31.6% increase in success rates for complex real-world dexterous manipulation tasks.
+      </p>
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+<div class="rows is-centered has-text-centered">
+  <h2 class="title is-3" style="margin-bottom: 0.5em; color:#000000">Model architecture</h2>
+  <p class="content has-text-justified" style="margin-bottom: 0.6em">We describe the two-stage learning process of the Video Prediction Policy. Initially, we train the Text-guided Video Prediction (TVP) model across diverse manipulation datasets to harness physical knowledge from internet data; subsequently, we design networks to aggregate predictive visual representations inside the TVP model and output final robot actions. <br><br><br></b>
+  </p>
+
+  <!-- <img src="media/figures/method.jpg" class="method-image" /> -->
+  <div class="columns is-vcentered  is-centered">
+    <!-- <video id="teaser" autoplay muted loop  height="90%" width="90%">
+      <source src="media/videos/model.mp4"
+              type="video/mp4">
+    </video> -->
+    <img src="media/images/method.png" class="method-image" />
+  </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+
+<div class="rows is-centered has-text-centered">
+  <h2 class="title is-3" style="margin-bottom: 0.5em; color:#000000">Experiment</h2>
+  <p class="content has-text-justified" style="margin-bottom: 0.6em">We conduct extensive experiments on both simulated and real-world robotic tasks to evaluate the performance of the video prediction policy (<strong>VPP</strong>). The simulated environments include the CALVIN benchmark and MetaWorld benchmark, while the real-world tasks encompass Panda arm manipulation and XHand dexterous hand manipulation. <br><br><br></b>
+  </p>
+   
+  <div class="rows is-centered has-text-centered">
+  <h2 class="title is-3" style="color:#6510ad;">Real-world Setup</h2>
+  <img src="media/images/Real.png" class="method-image" />
+  </div>
+  <br>
+  <br>
+  <br>
+  <div class="rows is-centered has-text-centered">
+  <h2 class="title is-3" style="color:#6510ad;">Quantitative Results</h2>
+  <img src="media/images/Metric.png" class="method-image" />
+  </div>
+</div>
+
+<br>
+
+<div class="rows is-centered has-text-centered">
+  <h2 class="title is-3" style="margin-bottom: 0.5em; color:#000000">Tool-use Task Rollouts Visualization</h2>
+  <p class="content" style="text-align: left">
+    On the dexterous hand platform, we collected <strong>4k</strong> trajectories over <strong>100+</strong> tasks of <strong>13</strong> categories, including placing, cup-upright, relocating, stacking, passing, pressing, unplugging, opening, and complex tool using. Here we first show the chanllenging tool-use tasks. <strong>All tasks below are run with single generalist policy with different instructions.</strong>
+  </p>
+
+  <div class="container block is-centered">
+    <div class="columns is-centered">
+      <div class="column is-2" style="width: 26%;">
+          <div class="select" style="display: block;">
+              <select id="env-selection" style="width: 100%;" onchange="SelectTestVideo()">
+                  <option value="env_2">Transfer liquid using a pipette</option>
+                  <option value="env_1">Use the hammer to hit the red nail</option>
+                  <option value="env_3">Grasp and use the electrical drill</option>
+                  <option value="env_4">Use the spoon to pour soup into the blue bowl</option>
+              </select>
+          </div>
+      </div>
+      <div class="column is-2">
+        <button class="button is-info is-outlined" id="shuffle-video" style="width: 100%; color: #6510ad; border-color: #6510ad;">
+            <span class="icon">
+                <ion-icon name="shuffle-outline" role="img" class="md hydrated"></ion-icon>
+            </span>
+            <span>Shuffle</span>
+        </button>
+    </div>
+    </div>
+  </div>
+
+  <div class="columns is-centered">
+    <div class="column has-text-centered">
+      <p style="text-align:center;">
+        <video id="test-video" width="80%" height="100%" controls autoplay loop muted>
+          <source src="media/videos/tools-tasks/env_2.mp4" type="video/mp4">
+        </video>
+      </p>
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+<br>
+<section class="section" style="padding: 0;">
+  <div class="container is-max-widescreen">
+
+    <div class="rows">
+
+      <div class="container has-text-centered">
+        <h2 class="title is-3" style="margin-bottom: 0.5em; color:#000000">More Tasks</h2>
+        <p class="content" style="margin-bottom: 1.5em; text-align: left;">
+          We deployed the robot in various tasks including placing, cup-upright, relocating, stacking, passing, pressing, unplugging, opening. We rollout policy with unseen objects and scenes.
+        </p>
+      </div>
+
+      <!-- <p class="content has-text-centered">
+        <span style="letter-spacing: 0.07em;">V<span style="font-variant: small-caps; font-size: 1.2em;">i</span>L<span style="font-variant: small-caps; font-size: 1.2em;">a</span></span> effectively utilizes visual feedback in an intuitive and natural way, enabling robust closed-loop planning in dynamic environments.
+      </p> -->
+      
+      <div class="video-container">
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/2.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/3.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/4.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/5.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/6.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/7.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/8.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/9.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/11.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/12.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/13.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/14.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/15.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/16.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/18.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/19.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/20.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/21.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/22.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/23.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/25.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/26.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/27.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/28.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/29.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/30.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/31.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist2" controls muted autoplay loop controlsList="nodownload" width="100%">
+            <source src="media/videos/more-tasks/32.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <style>
+        .video-container {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          grid-template-rows: repeat(7, auto); 
+          gap: 16px; 
+        }
+
+        .column {
+          width: 100%; 
+        }
+
+        video {
+          width: 100%;
+          height: auto; 
+        }
+      </style>
+
+    </div>
+  </div>
+</section>
+
+
+<br>
+<br>
+<br>
+<div class="rows is-centered has-text-centered">
+  <h2 class="title is-3" style="color:#000000;">Hardware Setup</h2>
+  <img src="media/images/hardware-setups.png" class="method-image" height="70%" width="70%" />
+</div>
+
+
+<script>
+  document.getElementById('shuffle-video').addEventListener('click', function() {
+    var envSelect = document.getElementById('env-selection');
+    randomizeSelect(envSelect);
+    console.log("Shuffle", envSelect.value)
+    SelectTestVideo();
+  });
+
+  function randomizeSelect(selectElement) {
+    var options = selectElement.options;
+    random_move = Math.random();
+    var randomIndex = Math.floor(Math.random() * options.length);
+    selectElement.selectedIndex = randomIndex;
+  }
+
+  function SelectTestVideo() {
+    var env_id = document.getElementById("env-selection").value;
+
+    console.log("SelectTestVideo", env_id)
+    var video = document.getElementById("test-video");
+    video.src = "media/videos/tools-tasks/" + env_id + ".mp4";
+    video.play();
+  }
+</script>
+
+<style>
+  .button.is-info.is-outlined:focus,
+  .button.is-info.is-outlined:active {
+    background-color: transparent;
+    border-color: #6510ad;
+    color: #6510ad;
+    box-shadow: none;
+  }
+
+  .button.is-info.is-outlined:hover {
+    background-color: #6510ad;
+    color: #fff;
+  }
+
+  .button.is-info.is-outlined:hover .icon ion-icon,
+  .button.is-info.is-outlined:hover span {
+    color: #fff;
+  }
+</style>
+
+</body>
+</html>
